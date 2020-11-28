@@ -19,6 +19,7 @@
 		757BFBD825720B9300E3190D /* SearchBarExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFBD625720B9300E3190D /* SearchBarExt.swift */; };
 		757BFBD925720B9300E3190D /* SearchBarExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFBD625720B9300E3190D /* SearchBarExt.swift */; };
 		7583ABDC2572108A00997A4F /* SearchListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7583ABDB2572108A00997A4F /* SearchListModel.swift */; };
+		7583ABE12572115400997A4F /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7583ABE02572115400997A4F /* GlobalVars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		757BFBAD2571F89900E3190D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		757BFBD625720B9300E3190D /* SearchBarExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarExt.swift; sourceTree = "<group>"; };
 		7583ABDB2572108A00997A4F /* SearchListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListModel.swift; sourceTree = "<group>"; };
+		7583ABE02572115400997A4F /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				757BFB922571F89900E3190D /* Assets.xcassets */,
 				757BFBE025720B9600E3190D /* Extensions */,
 				757BFB972571F89900E3190D /* Info.plist */,
+				7583AC042572121800997A4F /* CustomClass */,
 				757BFB8F2571F89800E3190D /* Demo_SearchImage.xcdatamodeld */,
 			);
 			path = "Demo-SearchImage";
@@ -174,6 +177,14 @@
 				7583ABDB2572108A00997A4F /* SearchListModel.swift */,
 			);
 			path = ImageSearchViews;
+			sourceTree = "<group>";
+		};
+		7583AC042572121800997A4F /* CustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				7583ABE02572115400997A4F /* GlobalVars.swift */,
+			);
+			path = CustomClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +322,7 @@
 				757BFBD725720B9300E3190D /* SearchBarExt.swift in Sources */,
 				757BFB872571F89800E3190D /* AppDelegate.swift in Sources */,
 				757BFB912571F89800E3190D /* Demo_SearchImage.xcdatamodeld in Sources */,
+				7583ABE12572115400997A4F /* GlobalVars.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
