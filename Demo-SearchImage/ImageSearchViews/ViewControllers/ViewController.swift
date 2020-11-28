@@ -20,6 +20,12 @@ class ViewController: UIViewController {
 //        tblImageList.dataSource = self
         txtSearch.delegate = self
         
+        ServiceCalss.post(showLoader: true, loaderString: "", url: "", parameters: ["q":"Animal","image_type":"photo"]) { (responseModel) in
+            
+        } failure: { (error) in
+            
+        }
+
     }
 
     @IBAction func didChange(_ sender: SearchTextField) {

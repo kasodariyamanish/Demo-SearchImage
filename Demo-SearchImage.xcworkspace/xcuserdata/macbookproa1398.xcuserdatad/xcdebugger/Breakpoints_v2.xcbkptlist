@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1764407C-0BB7-443E-9EAE-1EA443C1F78C"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B1E91A93-9297-45F3-8CFD-8F8EDBFAC0D9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo-SearchImage/ImageSearchViews/ViewControllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B1E91A93-9297-45F3-8CFD-8F8EDBFAC0D9 - 45276900303cc2ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Demo_SearchImage.ResponseModel) -&gt; () in Demo_SearchImage.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Demo-SearchImage"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbookproa1398/Documents/GitHub/Demo-SearchImage/Demo-SearchImage/ImageSearchViews/ViewControllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "B1E91A93-9297-45F3-8CFD-8F8EDBFAC0D9 - 8c153d77f19b93b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.AFError) -&gt; () in Demo_SearchImage.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Demo-SearchImage"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbookproa1398/Documents/GitHub/Demo-SearchImage/Demo-SearchImage/ImageSearchViews/ViewControllers/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "462F1C2D-AA7D-49A3-99CB-5DFDE86A6B41"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Demo-SearchImage/ImageSearchViews/ViewControllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
