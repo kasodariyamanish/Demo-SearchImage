@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Demo_SearchImage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ObQ-fg-nHi">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0Z-Fe-mvD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6If-Hq-0pq" customClass="SearchTextField" customModule="Demo_SearchImage" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="2" width="394" height="52"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="didChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="FEw-nP-a1o"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="6If-Hq-0pq" firstAttribute="leading" secondItem="z0Z-Fe-mvD" secondAttribute="leading" constant="10" id="Mpk-VU-i16"/>
+                                    <constraint firstAttribute="height" constant="56" id="kUT-g3-MXs"/>
+                                    <constraint firstItem="6If-Hq-0pq" firstAttribute="top" secondItem="z0Z-Fe-mvD" secondAttribute="top" constant="2" id="tUo-Ib-b1E"/>
+                                    <constraint firstAttribute="bottom" secondItem="6If-Hq-0pq" secondAttribute="bottom" constant="2" id="uGe-h8-xAC"/>
+                                    <constraint firstAttribute="trailing" secondItem="6If-Hq-0pq" secondAttribute="trailing" constant="10" id="xFm-Jh-Bgr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ObQ-fg-nHi" secondAttribute="trailing" id="4Kf-Jk-8bH"/>
+                            <constraint firstItem="ObQ-fg-nHi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Psn-ZI-aTQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ObQ-fg-nHi" secondAttribute="bottom" id="qtB-xs-9TL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z0Z-Fe-mvD" secondAttribute="trailing" id="tjT-4y-gZb"/>
+                            <constraint firstItem="ObQ-fg-nHi" firstAttribute="top" secondItem="z0Z-Fe-mvD" secondAttribute="bottom" id="ufV-Hv-FpR"/>
+                            <constraint firstItem="z0Z-Fe-mvD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vbM-oz-sn9"/>
+                            <constraint firstItem="z0Z-Fe-mvD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zN3-UH-I3c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tblImageList" destination="ObQ-fg-nHi" id="MlT-Gr-Wlb"/>
+                        <outlet property="txtSearch" destination="6If-Hq-0pq" id="GAg-hy-lfz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="90.401785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
