@@ -6,37 +6,142 @@
 //
 
 import UIKit
+import SwiftyJSON
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var txtSearch: SearchTextField!
-    @IBOutlet weak var tblImageList: UITableView!
+    @IBOutlet weak var btnSearch: UIButton!
+    @IBOutlet weak var tblImageList: UITableView!{
+        didSet{
+            tblImageList.register(UINib(nibName: CellIdentifier.IMAGE_CELL, bundle: nil), forCellReuseIdentifier: CellIdentifier.IMAGE_CELL)
+            tblImageList.dataSource = self
+            tblImageList.delegate = self
+        }
+    }
     
+    var imageListModel:ImagesResponseModel!
+    var searchListViewModel = SearchListViewModel()
+    var searchStr = "Animal"
+    var searchKeyWordsArr:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        /* Setup delegates */
-//        tblImageList.delegate = self
-//        tblImageList.dataSource = self
-        txtSearch.delegate = self
-        
-        ServiceCalss.post(showLoader: true, loaderString: "", url: "", parameters: ["q":"Animal","image_type":"photo"]) { (responseModel) in
-            
-        } failure: { (error) in
-            
+        if let keyWordArr = defaults.value(forKey: "SearchKeyWords") as? [String]{
+            searchKeyWordsArr = keyWordArr
         }
-
-    }
-
-    @IBAction func didChange(_ sender: SearchTextField) {
+        txtSearch.delegate = self
+        txtSearch.startVisible = true
+        txtSearch.startVisibleWithoutInteraction =  true
+        searchListViewModel.vc = self
+        searchListViewModel.getImageList(queryStr: "", type: "photo",pageNumber: 1)
         
+        txtSearch.setRightPaddingPoints(50)
     }
-    func searchText(_ query: String) {
-//        self.searchTF.filterStrings(arr)
+    
+    @IBAction func onBtnSearch(_ sender: UIButton) {
+        SearchImages()
+    }
+    
+    
+    func SearchImages() {
+        if txtSearch.text == searchStr {
+            return
+        }
+        else if (txtSearch.isEmpty){
+            self.alertOkay(title: Error.ALERT, message: Error.ENTER_VALID_STRING)
+            return
+        }
+        searchStr = txtSearch.text!
+        if var keyWordArr = defaults.value(forKey: "SearchKeyWords") as? [String]{
+            if !keyWordArr.contains(searchStr) {
+                if keyWordArr.count > 10 {
+                    keyWordArr.removeLast()
+                    keyWordArr.insert(searchStr, at: 0)
+                    defaults.setValue(keyWordArr, forKey: "SearchKeyWords")
+                    searchKeyWordsArr = keyWordArr
+                }
+                else{
+                    keyWordArr.insert(searchStr, at: 0)
+                    defaults.setValue(keyWordArr, forKey: "SearchKeyWords")
+                    searchKeyWordsArr = keyWordArr
+                }
+            }
+        }else{
+            defaults.setValue([searchStr], forKey: "SearchKeyWords")
+            searchKeyWordsArr = [searchStr]
+        }
+        defaults.synchronize()
+        searchListViewModel.getImageList(queryStr: searchStr, type: "photo",pageNumber: 1)
     }
 }
 
-
 extension ViewController:UITextFieldDelegate{
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        SearchImages()
+        return true
+    }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let searchText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+        
+        let filterdItemsArray = searchKeyWordsArr.filter { item in
+            return item.lowercased().contains(searchText.lowercased())
+        }
+        
+        self.txtSearch.filterStrings(filterdItemsArray.count == 0 ? searchKeyWordsArr : filterdItemsArray)
+        
+        return true
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.txtSearch.filterStrings(searchKeyWordsArr)
+        self.txtSearch.textFieldDidChange()
+    }
+    
+    func filterContentForSearchText(searchText: String) {
+        
+    }
+}
+extension ViewController:UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return imageListModel != nil ? imageListModel.hits.count : 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.IMAGE_CELL, for: indexPath) as! ImageCell
+        cell.hitModel = imageListModel.hits[indexPath.row]
+        return cell
+    }
+}
+
+extension ViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (tableView.frame.size.width * 200.0)/414.0
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let listModel = imageListModel {
+            if indexPath.row > listModel.hits.count - 5 {
+                guard let pageNumber = imageListModel.pageNumber else {
+                    return
+                }
+                guard let callAPIPageNumber = imageListModel.callAPIPageNumber else {
+                    return
+                }
+                if callAPIPageNumber > pageNumber {
+                    return
+                }
+                imageListModel?.callAPIPageNumber = pageNumber + 1
+                searchListViewModel.getImageList(queryStr: searchStr, type: "photo",pageNumber: pageNumber + 1)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let showImage = ShowImageVC.UI
+        showImage.hits = imageListModel.hits
+        showImage.index = indexPath.row
+        present(vc: showImage)
+    }
 }

@@ -9,12 +9,7 @@ import UIKit
 open class SearchTextField: UITextField {
     
     ////////////////////////////////////////////////////////////////////////
-    let keyWindow = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first
+    let keyWindow = UIApplication.shared.keyWindow
     
     // Public interface
     
@@ -145,7 +140,7 @@ open class SearchTextField: UITextField {
     fileprivate var timer: Timer? = nil
     fileprivate var placeholderLabel: UILabel?
     fileprivate static let cellIdentifier = "APSearchTextFieldCell"
-    fileprivate let indicator = UIActivityIndicatorView(style: .medium)
+    fileprivate let indicator = UIActivityIndicatorView(style: .gray)
     fileprivate var maxTableViewSize: CGFloat = 0
     
     fileprivate var filteredResults = [SearchTextFieldItem]()
@@ -277,19 +272,15 @@ open class SearchTextField: UITextField {
                 
                 var tableHeight: CGFloat = 0
                 if keyboardIsShowing, let keyboardHeight = keyboardFrame?.size.height {
-                    tableHeight = min((tableView.contentSize.height), (UIScreen.main.bounds.size.height - frame.origin.y - frame.height - keyboardHeight))
+                    tableHeight = min((theme.cellHeight * CGFloat(filteredResults.count)), (UIScreen.main.bounds.size.height - frame.origin.y - frame.height - keyboardHeight))
                 } else {
-                    tableHeight = min((tableView.contentSize.height), (UIScreen.main.bounds.size.height - frame.origin.y - frame.height))
+                    tableHeight = min(((theme.cellHeight + 10) * CGFloat(filteredResults.count)), (UIScreen.main.bounds.size.height - frame.origin.y - frame.height))
                 }
                 
                 if maxResultsListHeight > 0 {
                     tableHeight = min(tableHeight, CGFloat(maxResultsListHeight))
                 }
                 
-                // Set a bottom margin of 10p
-                if tableHeight < tableView.contentSize.height {
-                    tableHeight -= tableBottomMargin
-                }
                 
                 var tableViewFrame = CGRect(x: 0, y: 0, width: frame.size.width - 4, height: tableHeight)
                 tableViewFrame.origin = self.convert(tableViewFrame.origin, to: nil)
@@ -305,7 +296,7 @@ open class SearchTextField: UITextField {
                 shadowFrame.origin.y = tableView.frame.origin.y
                 shadowView!.frame = shadowFrame
             } else {
-                let tableHeight = min((tableView.contentSize.height), (UIScreen.main.bounds.size.height - frame.origin.y - theme.cellHeight))
+                let tableHeight = min((theme.cellHeight * CGFloat(filteredResults.count)), (UIScreen.main.bounds.size.height - frame.origin.y - theme.cellHeight))
                 UIView.animate(withDuration: 0.2, animations: { [weak self] in
                     self?.tableView?.frame = CGRect(x: frame.origin.x + 2, y: (frame.origin.y - tableHeight), width: frame.size.width - 4, height: tableHeight)
                     self?.shadowView?.frame = CGRect(x: frame.origin.x + 3, y: (frame.origin.y + 3), width: frame.size.width - 6, height: 1)
