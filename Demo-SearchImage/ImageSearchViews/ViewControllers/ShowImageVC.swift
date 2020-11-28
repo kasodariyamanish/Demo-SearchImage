@@ -42,6 +42,10 @@ class ShowImageVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     @IBAction func swipeMade(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .left {
             if hits.count > index + 1 {

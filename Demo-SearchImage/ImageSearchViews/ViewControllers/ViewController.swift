@@ -38,6 +38,10 @@ class ViewController: UIViewController {
         txtSearch.setRightPaddingPoints(50)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     @IBAction func onBtnSearch(_ sender: UIButton) {
         SearchImages()
     }
@@ -142,6 +146,7 @@ extension ViewController:UITableViewDelegate{
         let showImage = ShowImageVC.UI
         showImage.hits = imageListModel.hits
         showImage.index = indexPath.row
-        present(vc: showImage)
+        self.navigationController?.pushViewController(showImage, animated: true)
+        
     }
 }
