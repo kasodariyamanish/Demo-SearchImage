@@ -48,14 +48,24 @@
                                             <action selector="onBtnSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gyf-f8-gTS"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjm-7I-Hnp">
+                                        <rect key="frame" x="0.0" y="55" width="414" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="CAC-hy-oHh"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ufd-HI-Ex9" secondAttribute="trailing" constant="10" id="5Jh-tt-loc"/>
+                                    <constraint firstAttribute="trailing" secondItem="cjm-7I-Hnp" secondAttribute="trailing" id="6Oz-KG-pbP"/>
                                     <constraint firstItem="qNL-Uh-S7R" firstAttribute="top" secondItem="z0Z-Fe-mvD" secondAttribute="top" id="DLu-Vi-6mQ"/>
                                     <constraint firstAttribute="bottom" secondItem="qNL-Uh-S7R" secondAttribute="bottom" id="Guw-Z8-50M"/>
                                     <constraint firstItem="Ufd-HI-Ex9" firstAttribute="top" secondItem="z0Z-Fe-mvD" secondAttribute="top" id="NMR-FI-Kub"/>
+                                    <constraint firstItem="cjm-7I-Hnp" firstAttribute="leading" secondItem="z0Z-Fe-mvD" secondAttribute="leading" id="cye-YL-P7q"/>
                                     <constraint firstAttribute="bottom" secondItem="Ufd-HI-Ex9" secondAttribute="bottom" id="kIJ-Bw-Bkj"/>
+                                    <constraint firstAttribute="bottom" secondItem="cjm-7I-Hnp" secondAttribute="bottom" id="kRJ-RC-Qdf"/>
                                     <constraint firstAttribute="height" constant="56" id="kUT-g3-MXs"/>
                                     <constraint firstItem="Ufd-HI-Ex9" firstAttribute="width" secondItem="z0Z-Fe-mvD" secondAttribute="width" multiplier="0.149758" id="r5g-AB-3ya"/>
                                     <constraint firstAttribute="trailing" secondItem="qNL-Uh-S7R" secondAttribute="trailing" id="ydK-0n-dqe"/>

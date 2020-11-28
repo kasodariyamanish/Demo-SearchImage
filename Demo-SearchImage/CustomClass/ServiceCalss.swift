@@ -20,22 +20,14 @@ class ServiceCalss {
         AF.request(request).responseString { (response) in
             switch response.result {
             case .success(let result):
-                
                 if result.contains("[ERROR 400]") {
                     failure(ErrorModel(errorDescription: "Page is out of valid range.", errorCode: 400))
                     break
                 }
-                
                 let json = JSON(parseJSON: result)
-                print(json)
-//                let responseModel = ResponseModel()
-//                responseModel.total         = json["total"].int ?? 0
-//                responseModel.totalHits     = json["totalHits"].int ?? 0
-//                responseModel.json          = json["hits"]
                 success(json)
                 break
             case .failure(let error):
-                print(error.localizedDescription)
                 
                 failure(ErrorModel(errorDescription: error.localizedDescription, errorCode: error.responseCode ?? 0))
                 break

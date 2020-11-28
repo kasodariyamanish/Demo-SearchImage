@@ -218,10 +218,9 @@
 			isa = PBXGroup;
 			children = (
 				757BFBCE25720B6100E3190D /* ViewControllers */,
-				7583ABDB2572108A00997A4F /* SearchListModel.swift */,
-				7583AC262572248B00997A4F /* SearchListViewModel.swift */,
-				7583AC2B2572271100997A4F /* ImageCell.swift */,
-				7583AC2C2572271100997A4F /* ImageCell.xib */,
+				7583AC4825725DA900997A4F /* Model */,
+				7583AC4925725DB200997A4F /* ViewModel */,
+				7583AC4D25725DBA00997A4F /* View */,
 			);
 			path = ImageSearchViews;
 			sourceTree = "<group>";
@@ -233,6 +232,31 @@
 				7583AC08257212EE00997A4F /* ServiceCalss.swift */,
 			);
 			path = CustomClass;
+			sourceTree = "<group>";
+		};
+		7583AC4825725DA900997A4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7583ABDB2572108A00997A4F /* SearchListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7583AC4925725DB200997A4F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7583AC262572248B00997A4F /* SearchListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7583AC4D25725DBA00997A4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7583AC2B2572271100997A4F /* ImageCell.swift */,
+				7583AC2C2572271100997A4F /* ImageCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A6057AEE94CAA2BCF662BFB3 /* Pods */ = {
