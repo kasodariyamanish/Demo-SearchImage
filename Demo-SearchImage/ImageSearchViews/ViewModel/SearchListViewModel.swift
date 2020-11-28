@@ -11,6 +11,13 @@ class SearchListViewModel {
     weak var vc: ViewController?
     
     func getImageList(queryStr:String,type:String,pageNumber:Int = 1) {//["q":"Animal","image_type":"photo"]
+        
+        if !Connectivity.isConnectedToInternet {
+            self.vc?.alertOkay(title: "Alert!", message: Error.INTERNET_CONNECTION, okAction: {
+                
+            })
+            return
+         }
         ServiceCalss.post(url: "q=\(queryStr)&image_type=\(type)&page=\(pageNumber)") { (responseModel) in
             responseModel.toModel(completion: { (responseModel:ImagesResponseModel) in
                 DispatchQueue.main.async {

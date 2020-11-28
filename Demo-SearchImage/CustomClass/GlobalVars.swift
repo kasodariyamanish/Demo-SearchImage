@@ -14,6 +14,7 @@ class Keys {
 
 class Error {
     static let ENTER_VALID_STRING = "Please enter valid string"
+    static let INTERNET_CONNECTION = "Please check your internet connection and try again"
     static let ALERT = "Alert"
 }
 
