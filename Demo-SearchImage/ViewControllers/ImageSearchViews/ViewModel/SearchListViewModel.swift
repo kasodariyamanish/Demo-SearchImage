@@ -13,7 +13,7 @@ class SearchListViewModel {
     func getImageList(queryStr:String,type:String,pageNumber:Int = 1) {//["q":"Animal","image_type":"photo"]
         
         if !Connectivity.isConnectedToInternet {
-            self.vc?.alertOkay(title: "Alert!", message: Error.INTERNET_CONNECTION, okAction: {
+            self.vc?.alertOkay(title: Error.ALERT, message: Error.INTERNET_CONNECTION, okAction: {
                 
             })
             return
@@ -28,18 +28,19 @@ class SearchListViewModel {
                     }
                     else{
                         if model.hits.count == 0 {
-                            self.vc?.alertOkay(title: "Alert", message: "Image not available for this keyword")
+                            self.vc?.alertOkay(title: Error.ALERT, message: Error.IMAGE_NOT_FOUND)
+                            return
                         }
                         model.pageNumber = 1
                         model.callAPIPageNumber = 1
                         self.vc?.imageListModel = model
                     }
-                    
+                    self.vc?.searchStr = queryStr
                     self.vc?.tblImageList.reloadData()
                 }
             })
         } failure: { (error) in
-            self.vc?.alertOkay(title: "Alert!", message: error.errorDescription, okAction: {
+            self.vc?.alertOkay(title: Error.ALERT, message: error.errorDescription, okAction: {
                 
             })
         }

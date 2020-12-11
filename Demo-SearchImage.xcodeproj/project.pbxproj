@@ -151,8 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				757BFBC725720B5100E3190D /* AppDelegate */,
-				75C0EA9E25837282005EED68 /* DisplayImageSliderView */,
-				7583ABD72572103E00997A4F /* ImageSearchViews */,
+				75C0EAA4258377EE005EED68 /* ViewControllers */,
 				757BFBD225720B6E00E3190D /* Storyboards */,
 				757BFBE025720B9600E3190D /* Extensions */,
 				7583AC042572121800997A4F /* CustomClass */,
@@ -284,6 +283,15 @@
 				75458DB72583692F00D0DD95 /* ImageSliderCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		75C0EAA4258377EE005EED68 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				75C0EA9E25837282005EED68 /* DisplayImageSliderView */,
+				7583ABD72572103E00997A4F /* ImageSearchViews */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		A6057AEE94CAA2BCF662BFB3 /* Pods */ = {
@@ -729,9 +737,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = UA2WZC8PHU;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Demo-SearchImage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -740,7 +748,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Demo-SearchImage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Globle_provisional;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -752,9 +760,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = UA2WZC8PHU;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Demo-SearchImage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -763,7 +771,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Demo-SearchImage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Globle_provisional;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

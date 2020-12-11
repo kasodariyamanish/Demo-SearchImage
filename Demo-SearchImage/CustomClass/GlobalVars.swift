@@ -13,8 +13,9 @@ class Keys {
 }
 
 class Error {
-    static let ENTER_VALID_STRING = "Please enter valid string"
+    static let ENTER_VALID_STRING = "Please enter valid search keyword"
     static let INTERNET_CONNECTION = "Please check your internet connection and try again"
+    static let IMAGE_NOT_FOUND = "Image not available on this type of keywords."
     static let ALERT = "Alert"
 }
 

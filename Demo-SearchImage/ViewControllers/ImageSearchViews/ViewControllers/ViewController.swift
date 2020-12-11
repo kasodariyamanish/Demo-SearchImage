@@ -55,27 +55,27 @@ class ViewController: UIViewController {
             self.alertOkay(title: Error.ALERT, message: Error.ENTER_VALID_STRING)
             return
         }
-        searchStr = txtSearch.text!
+        
         if var keyWordArr = defaults.value(forKey: "SearchKeyWords") as? [String]{
-            if !keyWordArr.contains(searchStr) {
+            if !keyWordArr.contains(txtSearch.text!) {
                 if keyWordArr.count > 10 {
                     keyWordArr.removeLast()
-                    keyWordArr.insert(searchStr, at: 0)
+                    keyWordArr.insert(txtSearch.text!, at: 0)
                     defaults.setValue(keyWordArr, forKey: "SearchKeyWords")
                     searchKeyWordsArr = keyWordArr
                 }
                 else{
-                    keyWordArr.insert(searchStr, at: 0)
+                    keyWordArr.insert(txtSearch.text!, at: 0)
                     defaults.setValue(keyWordArr, forKey: "SearchKeyWords")
                     searchKeyWordsArr = keyWordArr
                 }
             }
         }else{
-            defaults.setValue([searchStr], forKey: "SearchKeyWords")
-            searchKeyWordsArr = [searchStr]
+            defaults.setValue([txtSearch.text!], forKey: "SearchKeyWords")
+            searchKeyWordsArr = [txtSearch.text!]
         }
         defaults.synchronize()
-        searchListViewModel.getImageList(queryStr: searchStr, type: "photo",pageNumber: 1)
+        searchListViewModel.getImageList(queryStr: txtSearch.text!, type: "photo",pageNumber: 1)
     }
 }
 
