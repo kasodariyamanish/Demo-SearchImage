@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0602708DDB7ED8806A967870 /* Pods_Demo_SearchImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DDB8CF0BD1E7708DA07BA /* Pods_Demo_SearchImage.framework */; };
+		75458DB82583692F00D0DD95 /* ImageSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75458DB62583692F00D0DD95 /* ImageSliderCell.swift */; };
+		75458DB92583692F00D0DD95 /* ImageSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75458DB72583692F00D0DD95 /* ImageSliderCell.xib */; };
 		757BFB872571F89800E3190D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFB862571F89800E3190D /* AppDelegate.swift */; };
 		757BFB8B2571F89800E3190D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFB8A2571F89800E3190D /* ViewController.swift */; };
 		757BFB8E2571F89800E3190D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757BFB8C2571F89800E3190D /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		17BFA63B30A34D1A2462BCE4 /* Pods-Demo-SearchImage-Demo-SearchImageUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-SearchImage-Demo-SearchImageUITests.release.xcconfig"; path = "Target Support Files/Pods-Demo-SearchImage-Demo-SearchImageUITests/Pods-Demo-SearchImage-Demo-SearchImageUITests.release.xcconfig"; sourceTree = "<group>"; };
 		29F0B2D9205B1F214FDE391D /* Pods_Demo_SearchImageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_SearchImageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB8642983B09F49214F4ACE /* Pods-Demo-SearchImageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-SearchImageTests.release.xcconfig"; path = "Target Support Files/Pods-Demo-SearchImageTests/Pods-Demo-SearchImageTests.release.xcconfig"; sourceTree = "<group>"; };
+		75458DB62583692F00D0DD95 /* ImageSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderCell.swift; sourceTree = "<group>"; };
+		75458DB72583692F00D0DD95 /* ImageSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSliderCell.xib; sourceTree = "<group>"; };
 		757BFB832571F89800E3190D /* Demo-SearchImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo-SearchImage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		757BFB862571F89800E3190D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		757BFB8A2571F89800E3190D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				757BFBC725720B5100E3190D /* AppDelegate */,
+				75C0EA9E25837282005EED68 /* DisplayImageSliderView */,
 				7583ABD72572103E00997A4F /* ImageSearchViews */,
 				757BFBD225720B6E00E3190D /* Storyboards */,
 				757BFBE025720B9600E3190D /* Extensions */,
@@ -188,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				757BFB8A2571F89800E3190D /* ViewController.swift */,
-				7583AC40257258D600997A4F /* ShowImageVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -252,6 +256,32 @@
 			children = (
 				7583AC2B2572271100997A4F /* ImageCell.swift */,
 				7583AC2C2572271100997A4F /* ImageCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		75C0EA9E25837282005EED68 /* DisplayImageSliderView */ = {
+			isa = PBXGroup;
+			children = (
+				75C0EA9F2583729F005EED68 /* ViewController */,
+				75C0EAA0258372A9005EED68 /* View */,
+			);
+			path = DisplayImageSliderView;
+			sourceTree = "<group>";
+		};
+		75C0EA9F2583729F005EED68 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7583AC40257258D600997A4F /* ShowImageVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		75C0EAA0258372A9005EED68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75458DB62583692F00D0DD95 /* ImageSliderCell.swift */,
+				75458DB72583692F00D0DD95 /* ImageSliderCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75458DB92583692F00D0DD95 /* ImageSliderCell.xib in Resources */,
 				757BFB962571F89900E3190D /* LaunchScreen.storyboard in Resources */,
 				7583AC2E2572271100997A4F /* ImageCell.xib in Resources */,
 				757BFB932571F89900E3190D /* Assets.xcassets in Resources */,
@@ -514,6 +545,7 @@
 				7583AC182572169E00997A4F /* Extensions.swift in Sources */,
 				757BFBD725720B9300E3190D /* SearchBarExt.swift in Sources */,
 				7583AC272572248B00997A4F /* SearchListViewModel.swift in Sources */,
+				75458DB82583692F00D0DD95 /* ImageSliderCell.swift in Sources */,
 				757BFB872571F89800E3190D /* AppDelegate.swift in Sources */,
 				7583AC41257258D600997A4F /* ShowImageVC.swift in Sources */,
 				757BFB912571F89800E3190D /* Demo_SearchImage.xcdatamodeld in Sources */,
@@ -697,8 +729,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5MD528GNDJ;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = UA2WZC8PHU;
 				INFOPLIST_FILE = "Demo-SearchImage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -707,6 +740,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Demo-SearchImage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Globle_provisional;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -718,8 +752,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5MD528GNDJ;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = UA2WZC8PHU;
 				INFOPLIST_FILE = "Demo-SearchImage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -728,6 +763,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Demo-SearchImage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Globle_provisional;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

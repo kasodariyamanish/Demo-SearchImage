@@ -20,4 +20,5 @@ class Error {
 
 class CellIdentifier {
     static let IMAGE_CELL = "ImageCell"
+    static let SLIDER_CELL = "cell"
 }

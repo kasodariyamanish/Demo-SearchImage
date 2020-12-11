@@ -7,6 +7,7 @@ target 'Demo-SearchImage' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'SDWebImage'
+  pod 'FSPagerView'
   # Pods for Demo-SearchImage
 
   target 'Demo-SearchImageTests' do
