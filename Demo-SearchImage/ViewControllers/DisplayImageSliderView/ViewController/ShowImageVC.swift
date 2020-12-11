@@ -34,13 +34,14 @@ class ShowImageVC: UIViewController {
         imageDisplayController.delegate = self
         imageDisplayController.dataSource = self
         imageDisplayController.backgroundView?.isHidden = true
+        imageDisplayController.transformer = FSPagerViewTransformer(type: .depth)
         DispatchQueue.main.async {
             self.imageDisplayController.scrollToItem(at: self.index, animated: false)
         }
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
 }

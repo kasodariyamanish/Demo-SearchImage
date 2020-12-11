@@ -18,9 +18,6 @@
 		757BFB962571F89900E3190D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757BFB942571F89900E3190D /* LaunchScreen.storyboard */; };
 		757BFBA12571F89900E3190D /* Demo_SearchImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFBA02571F89900E3190D /* Demo_SearchImageTests.swift */; };
 		757BFBAC2571F89900E3190D /* Demo_SearchImageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFBAB2571F89900E3190D /* Demo_SearchImageUITests.swift */; };
-		757BFBD725720B9300E3190D /* SearchBarExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFBD625720B9300E3190D /* SearchBarExt.swift */; };
-		757BFBD825720B9300E3190D /* SearchBarExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFBD625720B9300E3190D /* SearchBarExt.swift */; };
-		757BFBD925720B9300E3190D /* SearchBarExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BFBD625720B9300E3190D /* SearchBarExt.swift */; };
 		7583ABDC2572108A00997A4F /* SearchListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7583ABDB2572108A00997A4F /* SearchListModel.swift */; };
 		7583ABE12572115400997A4F /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7583ABE02572115400997A4F /* GlobalVars.swift */; };
 		7583AC09257212EE00997A4F /* ServiceCalss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7583AC08257212EE00997A4F /* ServiceCalss.swift */; };
@@ -29,6 +26,7 @@
 		7583AC2D2572271100997A4F /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7583AC2B2572271100997A4F /* ImageCell.swift */; };
 		7583AC2E2572271100997A4F /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7583AC2C2572271100997A4F /* ImageCell.xib */; };
 		7583AC41257258D600997A4F /* ShowImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7583AC40257258D600997A4F /* ShowImageVC.swift */; };
+		75C0EAB125837CF7005EED68 /* SearchTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C0EAB025837CF7005EED68 /* SearchTextVC.swift */; };
 		7BCE53900AA774C6CB7596F0 /* Pods_Demo_SearchImage_Demo_SearchImageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB51292C40D9201FF7581D54 /* Pods_Demo_SearchImage_Demo_SearchImageUITests.framework */; };
 		B25762EFCE1C18B96A20393B /* Pods_Demo_SearchImageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F0B2D9205B1F214FDE391D /* Pods_Demo_SearchImageTests.framework */; };
 /* End PBXBuildFile section */
@@ -70,7 +68,6 @@
 		757BFBA72571F89900E3190D /* Demo-SearchImageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Demo-SearchImageUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		757BFBAB2571F89900E3190D /* Demo_SearchImageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_SearchImageUITests.swift; sourceTree = "<group>"; };
 		757BFBAD2571F89900E3190D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		757BFBD625720B9300E3190D /* SearchBarExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarExt.swift; sourceTree = "<group>"; };
 		7583ABDB2572108A00997A4F /* SearchListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListModel.swift; sourceTree = "<group>"; };
 		7583ABE02572115400997A4F /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		7583AC08257212EE00997A4F /* ServiceCalss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCalss.swift; sourceTree = "<group>"; };
@@ -79,6 +76,7 @@
 		7583AC2B2572271100997A4F /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		7583AC2C2572271100997A4F /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		7583AC40257258D600997A4F /* ShowImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageVC.swift; sourceTree = "<group>"; };
+		75C0EAB025837CF7005EED68 /* SearchTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextVC.swift; sourceTree = "<group>"; };
 		77976DC1843FDA1CCFC666E4 /* Pods-Demo-SearchImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-SearchImage.debug.xcconfig"; path = "Target Support Files/Pods-Demo-SearchImage/Pods-Demo-SearchImage.debug.xcconfig"; sourceTree = "<group>"; };
 		90D972E0D1DD3499FAE86B6F /* Pods-Demo-SearchImageTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo-SearchImageTests.debug.xcconfig"; path = "Target Support Files/Pods-Demo-SearchImageTests/Pods-Demo-SearchImageTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BB51292C40D9201FF7581D54 /* Pods_Demo_SearchImage_Demo_SearchImageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_SearchImage_Demo_SearchImageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				757BFB8A2571F89800E3190D /* ViewController.swift */,
+				75C0EAB025837CF7005EED68 /* SearchTextVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,7 +207,6 @@
 		757BFBE025720B9600E3190D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				757BFBD625720B9300E3190D /* SearchBarExt.swift */,
 				7583AC172572169E00997A4F /* Extensions.swift */,
 			);
 			path = Extensions;
@@ -551,11 +549,11 @@
 				757BFB8B2571F89800E3190D /* ViewController.swift in Sources */,
 				7583AC09257212EE00997A4F /* ServiceCalss.swift in Sources */,
 				7583AC182572169E00997A4F /* Extensions.swift in Sources */,
-				757BFBD725720B9300E3190D /* SearchBarExt.swift in Sources */,
 				7583AC272572248B00997A4F /* SearchListViewModel.swift in Sources */,
 				75458DB82583692F00D0DD95 /* ImageSliderCell.swift in Sources */,
 				757BFB872571F89800E3190D /* AppDelegate.swift in Sources */,
 				7583AC41257258D600997A4F /* ShowImageVC.swift in Sources */,
+				75C0EAB125837CF7005EED68 /* SearchTextVC.swift in Sources */,
 				757BFB912571F89800E3190D /* Demo_SearchImage.xcdatamodeld in Sources */,
 				7583ABE12572115400997A4F /* GlobalVars.swift in Sources */,
 				7583AC2D2572271100997A4F /* ImageCell.swift in Sources */,
@@ -567,7 +565,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				757BFBA12571F89900E3190D /* Demo_SearchImageTests.swift in Sources */,
-				757BFBD825720B9300E3190D /* SearchBarExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,7 +573,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				757BFBAC2571F89900E3190D /* Demo_SearchImageUITests.swift in Sources */,
-				757BFBD925720B9300E3190D /* SearchBarExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,9 +733,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = UA2WZC8PHU;
 				INFOPLIST_FILE = "Demo-SearchImage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -748,7 +744,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Demo-SearchImage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Globle_provisional;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -760,9 +756,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = UA2WZC8PHU;
 				INFOPLIST_FILE = "Demo-SearchImage/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -771,7 +767,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Demo-SearchImage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Globle_provisional;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

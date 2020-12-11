@@ -10,8 +10,7 @@ import UIKit
 class SearchListViewModel {
     weak var vc: ViewController?
     
-    func getImageList(queryStr:String,type:String,pageNumber:Int = 1) {//["q":"Animal","image_type":"photo"]
-        
+    func getImageList(queryStr:String,type:String,pageNumber:Int = 1) {
         if !Connectivity.isConnectedToInternet {
             self.vc?.alertOkay(title: Error.ALERT, message: Error.INTERNET_CONNECTION, okAction: {
                 

@@ -7,11 +7,10 @@
 
 import UIKit
 import SwiftyJSON
-
 class ViewController: UIViewController {
 
-    @IBOutlet weak var txtSearch: SearchTextField!
-    @IBOutlet weak var btnSearch: UIButton!
+    @IBOutlet weak var txtSearchBar: UISearchBar!
+    @IBOutlet weak var searchTextTableView: UIView!
     @IBOutlet weak var tblImageList: UITableView!{
         didSet{
             tblImageList.register(UINib(nibName: CellIdentifier.IMAGE_CELL, bundle: nil), forCellReuseIdentifier: CellIdentifier.IMAGE_CELL)
@@ -20,6 +19,9 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var constraintHeightSearchTextVC: NSLayoutConstraint!
+    
+    var searchTextVC:SearchTextVC?
     var imageListModel:ImagesResponseModel!
     var searchListViewModel = SearchListViewModel()
     var searchStr = "Animal"
@@ -29,84 +31,114 @@ class ViewController: UIViewController {
         if let keyWordArr = defaults.value(forKey: "SearchKeyWords") as? [String]{
             searchKeyWordsArr = keyWordArr
         }
-        txtSearch.delegate = self
-        txtSearch.startVisible = true
-        txtSearch.startVisibleWithoutInteraction =  true
+        txtSearchBar.delegate = self
         searchListViewModel.vc = self
         searchListViewModel.getImageList(queryStr: "", type: "photo",pageNumber: 1)
-        
-        txtSearch.setRightPaddingPoints(50)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    @IBAction func onBtnSearch(_ sender: UIButton) {
-        SearchImages()
-    }
-    
-    
-    func SearchImages() {
-        if txtSearch.text == searchStr {
+    func SearchImages(searchText:String) {
+        if searchText == searchStr {
             return
         }
-        else if (txtSearch.isEmpty){
+        else if (searchText.isEmpty){
             self.alertOkay(title: Error.ALERT, message: Error.ENTER_VALID_STRING)
             return
         }
         
         if var keyWordArr = defaults.value(forKey: "SearchKeyWords") as? [String]{
-            if !keyWordArr.contains(txtSearch.text!) {
+            if !keyWordArr.contains(searchText) {
                 if keyWordArr.count > 10 {
                     keyWordArr.removeLast()
-                    keyWordArr.insert(txtSearch.text!, at: 0)
+                    keyWordArr.insert(searchText, at: 0)
                     defaults.setValue(keyWordArr, forKey: "SearchKeyWords")
                     searchKeyWordsArr = keyWordArr
                 }
                 else{
-                    keyWordArr.insert(txtSearch.text!, at: 0)
+                    keyWordArr.insert(searchText, at: 0)
                     defaults.setValue(keyWordArr, forKey: "SearchKeyWords")
                     searchKeyWordsArr = keyWordArr
                 }
             }
         }else{
-            defaults.setValue([txtSearch.text!], forKey: "SearchKeyWords")
-            searchKeyWordsArr = [txtSearch.text!]
+            defaults.setValue([searchText], forKey: "SearchKeyWords")
+            searchKeyWordsArr = [searchText]
         }
         defaults.synchronize()
-        searchListViewModel.getImageList(queryStr: txtSearch.text!, type: "photo",pageNumber: 1)
+        searchListViewModel.getImageList(queryStr: searchText, type: "photo",pageNumber: 1)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchTextVC" {
+            if let vc = segue.destination as? SearchTextVC{
+                searchTextVC = vc
+            }
+        }
     }
 }
 
-extension ViewController:UITextFieldDelegate{
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        SearchImages()
-        return true
+//MARK: Searchbar delegate
+extension ViewController:UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchBarText(searchText: searchText)
     }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let searchText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
-        
-        let filterdItemsArray = searchKeyWordsArr.filter { item in
-            return item.lowercased().contains(searchText.lowercased())
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            searchBarText(searchText: searchText)
         }
-        
-        self.txtSearch.filterStrings(filterdItemsArray.count == 0 ? searchKeyWordsArr : filterdItemsArray)
-        
-        return true
-        
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.txtSearch.filterStrings(searchKeyWordsArr)
-        self.txtSearch.textFieldDidChange()
+    func searchBarText(searchText:String) {
+        let searchTextStr = searchText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        
+        let filtered = searchKeyWordsArr.filter({ (text) -> Bool in
+            let tmp: NSString = text as NSString
+            let range = tmp.range(of: searchTextStr, options: .caseInsensitive)
+                    return range.location != NSNotFound
+                })
+        
+        if(filtered.count > 0){
+            self.searchTextTableView.isHidden = false
+            if let searchTextVc = searchTextVC{
+                searchTextVc.searchTextArr = filtered
+                searchTextVc.reloadTable()
+            }
+        }
+        else if searchKeyWordsArr.count > 0 && searchTextStr == ""{//empty searchbar
+            self.searchTextTableView.isHidden = false
+            if let searchTextVc = searchTextVC{
+                searchTextVc.searchTextArr = searchKeyWordsArr
+                searchTextVc.reloadTable()
+            }
+        }
+        else{
+            self.searchTextTableView.isHidden = true
+        }
     }
     
-    func filterContentForSearchText(searchText: String) {
-        
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchTextTableView.isHidden = true
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        var searchText = ""
+        if let text = searchBar.text{
+            searchText = text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        }
+        SearchImagesFromSearchText(searchText: searchText)
+    }
+    
+    func SearchImagesFromSearchText(searchText:String) {
+        self.searchTextTableView.isHidden = true
+        self.txtSearchBar.text = searchText
+        SearchImages(searchText: searchText)
+        self.txtSearchBar.resignFirstResponder()
     }
 }
+
+//MARK: Tableview datasource
 extension ViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imageListModel != nil ? imageListModel.hits.count : 0
@@ -119,6 +151,8 @@ extension ViewController:UITableViewDataSource{
     }
 }
 
+
+//MARK: Tableview delegate
 extension ViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (tableView.frame.size.width * 200.0)/414.0
@@ -143,6 +177,9 @@ extension ViewController:UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.searchTextTableView.isHidden = true
+        self.txtSearchBar.resignFirstResponder()
+        
         let showImage = ShowImageVC.UI
         showImage.hits = imageListModel.hits
         showImage.index = indexPath.row
